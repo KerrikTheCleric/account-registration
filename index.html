@@ -9,18 +9,18 @@
 <body>
     <section id="main">
         <h3>Register your account</h3>
-        <form>
+        <form id="form">
             <label id="nameLabel">Name</label><br>
-            <input type="text" id="name" name="name"><br>
+            <input type="text" id="name" name="name" required><br>
             <label id="usernameLabel">Username</label><br>
-            <input type="text" id="username" name="username"><br>
+            <input type="text" id="username" name="username" required><br>
             <label id="emailLabel">Email</label><br>
-            <input type="email" id="email" name="email"><br>
+            <input type="email" id="email" name="email" required><br>
             <label id="passwordLabel1">Password</label><br>
-            <input type="password" id="password1" name="password1"><br>
+            <input type="password" id="password1" name="password1" required><div id="passwordDiv1">Password must be at least 8 characters long.</div><br>
             <label id="passwordLabel2">Confirm Password</label><br>
-            <input type="password" id="password2" name="password2"><br>
-            <button>Sign Up</button>
+            <input type="password" id="password2" name="password2" required><div id="passwordDiv2">Password must match in both fields.</div><br>
+            <button id="submitButton">Sign Up</button>
           </form>
     </section>
     <script src="index.js"></script>

@@ -24,3 +24,12 @@ input{
 button{
     background-color: lightgreen;
 }
+
+div{
+    margin-top: 3px;
+    margin-left: 10px;
+    display:inline-block;
+    visibility:hidden;
+    position:absolute;
+    background-color:#E5E5F0; color:black;
+}
