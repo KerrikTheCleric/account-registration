@@ -1,7 +1,3 @@
-//Confirmation event for button
-
-//Non-matching passwords need to disable submit button
-
 const formElement = document.getElementById("form");
 const nameLabelElement = document.getElementById("nameLabel");
 const usernameLabel = document.getElementById("usernameLabel");
@@ -14,6 +10,10 @@ const passwordInputElement1 = document.getElementById("password1");
 const passwordDivElement1 = document.getElementById("passwordDiv1");
 const passwordInputElement2 = document.getElementById("password2");
 const passwordDivElement2 = document.getElementById("passwordDiv2");
+
+formElement.onsubmit = formHandling;
+
+// Click on label to focus on input events.
 
 nameLabelElement.addEventListener('click', function () {
     document.getElementById("name").focus();
@@ -35,9 +35,7 @@ passwordLabel2.addEventListener('click', function () {
     document.getElementById("password2").focus();
 }, false);
 
-submitButton.addEventListener('submit', function () {
-    formElement.submit();
-}, false);
+//Event logic for both password inputs to show and hide message.
 
 passwordInputElement1.addEventListener('focus', function () {
     if(passwordInputElement1.value.length < 8){
@@ -67,6 +65,14 @@ passwordInputElement2.addEventListener('input', function () {
     passwordInputBehaviour(false);
 }, false);
 
+//Button logic.
+
+submitButton.addEventListener('submit', function () {
+    formElement.submit();
+}, false);
+
+// Conjoined function for nadling logic when inputting or deleting characters.
+
 function passwordInputBehaviour(firstElement){
     if(firstElement){
         if(passwordInputElement1.value.length >= 8){
@@ -92,10 +98,28 @@ function passwordInputBehaviour(firstElement){
     }
 }
 
+// Checks for a match of the password fields.
+
 function passwordFieldsMatch(){
     if(passwordInputElement2.value === passwordInputElement1.value){
         return true;
     } else{
         return false;
     }
+}
+
+//Collects the data from the form in an object and displays it as an alert after submission.
+
+function formHandling(event){
+
+    event.preventDefault();
+
+    const registrationData = {
+        name: event.target.name.value,
+        username: event.target.username.value,
+        email: event.target.email.value,
+        password: event.target.password.value,
+      };
+
+    alert(registrationData.name + '\n' + registrationData.username + '\n' + registrationData.email + '\n' + registrationData.password);
 }
