@@ -1,7 +1,5 @@
 //Confirmation event for button
 
-//8 Character Check For Passwords
-
 //Non-matching passwords need to disable submit button
 
 const formElement = document.getElementById("form");
@@ -52,11 +50,7 @@ passwordInputElement1.addEventListener('blur', function () {
 }, false);
 
 passwordInputElement1.addEventListener('input', function () {
-    if(passwordInputElement1.value.length >= 8){
-        passwordDivElement1.style.visibility = "hidden";
-    } else if(passwordInputElement1.value.length < 8){
-        passwordDivElement1.style.visibility = "visible";
-    }
+    passwordInputBehaviour(true);
 }, false);
 
 passwordInputElement2.addEventListener('focus', function () {
@@ -70,9 +64,38 @@ passwordInputElement2.addEventListener('blur', function () {
 }, false);
 
 passwordInputElement2.addEventListener('input', function () {
-    if(passwordInputElement2.value.length >= 8){
-        passwordDivElement2.style.visibility = "hidden";
-    } else if(passwordInputElement2.value.length < 8){
-        passwordDivElement2.style.visibility = "visible";
-    }
+    passwordInputBehaviour(false);
 }, false);
+
+function passwordInputBehaviour(firstElement){
+    if(firstElement){
+        if(passwordInputElement1.value.length >= 8){
+            passwordDivElement1.style.visibility = "hidden";
+
+            if(passwordFieldsMatch()){
+                submitButton.disabled = false;
+            }
+
+        } else if(passwordInputElement1.value.length < 8){
+            passwordDivElement1.style.visibility = "visible";
+            submitButton.disabled = true;
+        }
+    }else{
+        if(passwordFieldsMatch() && passwordInputElement2.value.length >= 8){
+            passwordDivElement2.style.visibility = "hidden";
+            submitButton.disabled = false;
+
+        } else if(passwordInputElement2.value.length < 8){
+            passwordDivElement2.style.visibility = "visible";
+            submitButton.disabled = true;
+        }
+    }
+}
+
+function passwordFieldsMatch(){
+    if(passwordInputElement2.value === passwordInputElement1.value){
+        return true;
+    } else{
+        return false;
+    }
+}
