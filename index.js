@@ -1,4 +1,4 @@
-const formElement = document.querySelector("#form");
+const formElement = document.querySelector("form");
 const nameLabelElement = document.querySelector("#nameLabel");
 const usernameLabel = document.querySelector("#usernameLabel");
 const emailLabel = document.querySelector("#emailLabel");
