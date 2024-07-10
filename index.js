@@ -71,7 +71,7 @@ submitButton.addEventListener('submit', function () {
     formElement.submit();
 }, false);
 
-// Conjoined function for nadling logic when inputting or deleting characters.
+// Conjoined function for handling logic when inputting or deleting characters.
 
 function passwordInputBehaviour(firstElement){
     if(firstElement){
