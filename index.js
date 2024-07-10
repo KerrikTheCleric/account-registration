@@ -1,38 +1,38 @@
-const formElement = document.getElementById("form");
-const nameLabelElement = document.getElementById("nameLabel");
-const usernameLabel = document.getElementById("usernameLabel");
-const emailLabel = document.getElementById("emailLabel");
-const passwordLabel1 = document.getElementById("passwordLabel1");
-const passwordLabel2 = document.getElementById("passwordLabel2");
-const submitButton = document.getElementById("submitButton");
+const formElement = document.querySelector("#form");
+const nameLabelElement = document.querySelector("#nameLabel");
+const usernameLabel = document.querySelector("#usernameLabel");
+const emailLabel = document.querySelector("#emailLabel");
+const passwordLabel1 = document.querySelector("#passwordLabel1");
+const passwordLabel2 = document.querySelector("#passwordLabel2");
+const submitButton = document.querySelector("#submitButton");
 
-const passwordInputElement1 = document.getElementById("password1");
-const passwordDivElement1 = document.getElementById("passwordDiv1");
-const passwordInputElement2 = document.getElementById("password2");
-const passwordDivElement2 = document.getElementById("passwordDiv2");
+const passwordInputElement1 = document.querySelector("#password1");
+const passwordDivElement1 = document.querySelector("#passwordDiv1");
+const passwordInputElement2 = document.querySelector("#password2");
+const passwordDivElement2 = document.querySelector("#passwordDiv2");
 
 formElement.onsubmit = formHandling;
 
 // Click on label to focus on input events.
 
 nameLabelElement.addEventListener('click', function () {
-    document.getElementById("name").focus();
+    document.querySelector("#name").focus();
 }, false);
 
 usernameLabel.addEventListener('click', function () {
-    document.getElementById("username").focus();
+    document.querySelector("#username").focus();
 }, false);
 
 emailLabel.addEventListener('click', function () {
-    document.getElementById("email").focus();
+    document.querySelector("#email").focus();
 }, false);
 
 passwordLabel1.addEventListener('click', function () {
-    document.getElementById("password1").focus();
+    document.querySelector("#password1").focus();
 }, false);
 
 passwordLabel2.addEventListener('click', function () {
-    document.getElementById("password2").focus();
+    document.querySelector("#password2").focus();
 }, false);
 
 //Event logic for both password inputs to show and hide message.
